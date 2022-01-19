@@ -50,6 +50,8 @@ class Board extends React.Component {
     );
   }
     render (){
+
+      console.log(this.props.color)
       const winner = calculateWinner(this.state.squares);
       let status;
       if(winner){
@@ -61,7 +63,7 @@ class Board extends React.Component {
 //重複するはずのコードを避けるためにrenderSquareという変数を先に定義している
       return(
       <div>
-        <div className="status">{status}</div>
+        <div className="status" style={{color: "yellow"}}>{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -83,11 +85,16 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component{
+
   render(){
-    return(
+    const color = "blue"
+    const size = "L"
+    console.log("game ")
+return(
       <div className="game">
         <div className="game-board">
-          <Board />
+          <Board color={color} size={size} material="wood"/>
+          <Board color="pink" size={size} material="wood"/>
         </div>
         <div className="game-info">
           <div>{/*STATUS*/}</div>
